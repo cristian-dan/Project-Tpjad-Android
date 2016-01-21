@@ -2,33 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp">
+
         <EditText
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:textColor="@color/tabsColorPrimary"
             android:id="@+id/categoryName" />
+
         <Button
-            android:layout_width="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/categoryButton"
-            android:id="@+id/button" />
+            android:id="@+id/addCategoryButton"
+            android:textColor="@color/tabsColorPrimary"
+            android:gravity="center" />
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/tabsColorPrimary"
+        android:text="@string/categoriesTitle"
+        android:id="@+id/categoriesTitle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/tabsColorPrimary"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/categoryList">
+
     </ListView>
 
 </LinearLayout>

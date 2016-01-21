@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tpjad.clienttpjad.R;
+import com.tpjad.clienttpjad.interfaces.LoginCallbackInterface;
 import com.tpjad.clienttpjad.utils.LoginHelper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,24 +27,42 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView usernameInput = (TextView)findViewById(R.id.loginUsername);
-                TextView passwordInput = (TextView)findViewById(R.id.loginPassword);
+                EditText usernameInput = (EditText)findViewById(R.id.loginUsername);
+                EditText passwordInput = (EditText)findViewById(R.id.loginPassword);
 
                 String username = usernameInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
-                LoginHelper loginHelper = LoginHelper.getInstance();
-                displayLoadingStatus();
-                boolean loggedIn = loginHelper.loginRequest(username, password);
-                if (!loggedIn) {
-                    hideLoadingStatus();
-                    Toast.makeText(LoginActivity.this, getString(R.string.login_error_message), Toast.LENGTH_LONG).show();
+                if (username.length() == 0) {
+                    usernameInput.setError(getString(R.string.usernameError));
                     return;
                 }
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                if (password.length() == 0) {
+                    passwordInput.setError(getString(R.string.passwordError));
+                    return;
+                }
 
-                finish();
+                LoginHelper loginHelper = LoginHelper.getInstance();
+                displayLoadingStatus();
+                loginHelper.loginRequest(
+                        LoginActivity.this,
+                        username,
+                        password,
+                        new LoginCallbackInterface() {
+                            @Override
+                            public void onLoginResponse(boolean response) {
+                                if (!response) {
+                                    hideLoadingStatus();
+                                    Toast.makeText(LoginActivity.this, getString(R.string.login_error_message), Toast.LENGTH_LONG).show();
+                                    return;
+                                }
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+
+                                finish();
+                            }
+                        }
+                );
             }
         });
     }

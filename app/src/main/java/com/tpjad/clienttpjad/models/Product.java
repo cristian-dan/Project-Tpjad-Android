@@ -7,6 +7,21 @@ public class Product {
     private String description;
     private Category category;
 
+    public Product(int id, int stock, String name, String description, Category category) {
+        this.id = id;
+        this.stock = stock;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+    }
+
+    public Product(int stock, String name, String description, Category category) {
+        this.stock = stock;
+        this.name = name;
+        this.description = description;
+        this.category = category;
+    }
+
     public int getId() {
         return id;
     }
