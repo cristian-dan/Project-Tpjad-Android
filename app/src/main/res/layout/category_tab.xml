@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:textColor="@color/tabsColorPrimary"
-            android:id="@+id/categoryName" />
+            android:id="@+id/categoryName"
+            android:hint="@string/category_name_hint"/>
 
         <Button
             android:layout_marginLeft="5dp"

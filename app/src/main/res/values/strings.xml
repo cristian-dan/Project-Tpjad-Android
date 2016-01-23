@@ -35,4 +35,8 @@
     <string name="categoryNameError">Please insert a name.</string>
     <string name="usernameError">Please insert your username.</string>
     <string name="passwordError">Please insert a password.</string>
+    <string name="product_name_hint">Product Name</string>
+    <string name="product_description_hint">Product Description</string>
+    <string name="product_stock_hint">Stock</string>
+    <string name="category_name_hint">Category Name</string>
 </resources>

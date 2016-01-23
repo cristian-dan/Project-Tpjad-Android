@@ -27,7 +27,8 @@
                 android:layout_weight="4"
                 android:inputType="text"
                 android:textColor="@color/tabsColorPrimary"
-                android:id="@+id/productName" />
+                android:id="@+id/productName"
+                android:hint="@string/product_name_hint"/>
 
         </LinearLayout>
 
@@ -43,7 +44,8 @@
                 android:layout_weight="3"
                 android:inputType="text"
                 android:textColor="@color/tabsColorPrimary"
-                android:id="@+id/productDescription" />
+                android:id="@+id/productDescription"
+                android:hint="@string/product_description_hint"/>
 
             <EditText
                 android:layout_width="0dp"
@@ -51,7 +53,8 @@
                 android:layout_weight="1"
                 android:inputType="number"
                 android:textColor="@color/tabsColorPrimary"
-                android:id="@+id/productStock" />
+                android:id="@+id/productStock"
+                android:hint="@string/product_stock_hint"/>
 
         </LinearLayout>
 
